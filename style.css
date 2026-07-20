@@ -59,3 +59,28 @@ body{
     text-transform:uppercase;
 
 }
+.espacio{
+
+    height:20mm;
+
+}
+
+.portada h3{
+
+    margin-bottom:5mm;
+
+    font-size:14pt;
+
+    text-align:center;
+
+}
+
+.portada p{
+
+    text-align:center;
+
+    font-size:14pt;
+
+    margin-bottom:10mm;
+
+}
