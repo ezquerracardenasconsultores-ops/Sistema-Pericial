@@ -1,69 +1,412 @@
 /*==========================================================
-    SISTEMA PROFESIONAL DE INFORMES PERICIALES
-    script.js
-    Versión 1.0
+ SISTEMA PROFESIONAL DE INFORMES PERICIALES
+ script.js
 ==========================================================*/
 
 "use strict";
 
 /*==========================================================
-INICIO DEL SISTEMA
+ BASE DE DATOS DEL INFORME
 ==========================================================*/
 
-document.addEventListener("DOMContentLoaded", iniciarSistema);
+const informe = {
 
+    expediente : "",
+
+    juzgado : "",
+
+    especialista : "",
+
+    demandante : "",
+
+    demandado : "",
+
+    materia : "",
+
+    perito : "",
+
+    registro : "",
+
+    fecha : "",
+
+    lugar : "Lima",
+
+    anexos : [],
+
+    evidencias : []
+
+};
 
 /*==========================================================
-FUNCIÓN PRINCIPAL
+ ATAJOS
 ==========================================================*/
 
-function iniciarSistema(){
+const $ = selector => document.querySelector(selector);
 
-    numerarPaginas();
+const $$ = selector => document.querySelectorAll(selector);
 
-    insertarPiePagina();
+/*==========================================================
+ CARGAR DATOS EN EL HTML
+==========================================================*/
 
-    insertarEncabezado();
+function cargarDatos(){
 
-    mostrarFechaActual();
+    $("#expediente").textContent = informe.expediente;
 
-    configurarImpresion();
+    $("#juzgado").textContent = informe.juzgado;
+
+    $("#especialista").textContent = informe.especialista;
+
+    $("#demandante").textContent = informe.demandante;
+
+    $("#demandado").textContent = informe.demandado;
+
+    $("#materia").textContent = informe.materia;
+
+    $("#perito").textContent = informe.perito;
+
+    $("#registro").textContent = informe.registro;
+
+    $("#fecha").textContent = informe.fecha;
+
+    $("#fechaInforme").textContent = informe.fecha;
+
+    $("#lugar").textContent = informe.lugar;
 
 }
 
-
 /*==========================================================
-NUMERACIÓN DE PÁGINAS
+ FECHA ACTUAL
 ==========================================================*/
 
-function numerarPaginas(){
+function fechaActual(){
 
-    const paginas=document.querySelectorAll(".pagina");
+    const hoy = new Date();
 
-    paginas.forEach((pagina,indice)=>{
+    return hoy.toLocaleDateString("es-PE");
 
-        pagina.dataset.pagina=indice+1;
+}
+
+/*==========================================================
+ NUEVO INFORME
+==========================================================*/
+
+function nuevoInforme(){
+
+    informe.expediente="";
+
+    informe.juzgado="";
+
+    informe.especialista="";
+
+    informe.demandante="";
+
+    informe.demandado="";
+
+    informe.materia="";
+
+    informe.perito="";
+
+    informe.registro="";
+
+    informe.fecha=fechaActual();
+
+    informe.anexos=[];
+
+    informe.evidencias=[];
+
+    cargarDatos();
+
+}
+/*==========================================================
+ GUARDAR INFORME
+==========================================================*/
+
+function guardarInforme(){
+
+    const datos = JSON.stringify(informe,null,4);
+
+    const archivo = new Blob([datos],{
+
+        type:"application/json"
+
+    });
+
+    const enlace = document.createElement("a");
+
+    enlace.href = URL.createObjectURL(archivo);
+
+    enlace.download = "Informe_Pericial.json";
+
+    enlace.click();
+
+    URL.revokeObjectURL(enlace.href);
+
+}
+
+/*==========================================================
+ ABRIR INFORME
+==========================================================*/
+
+function abrirInforme(event){
+
+    const archivo = event.target.files[0];
+
+    if(!archivo){
+
+        return;
+
+    }
+
+    const lector = new FileReader();
+
+    lector.onload=function(e){
+
+        const datos = JSON.parse(e.target.result);
+
+        Object.assign(informe,datos);
+
+        cargarDatos();
+
+        cargarAnexos();
+
+        cargarEvidencias();
+
+    };
+
+    lector.readAsText(archivo);
+
+}
+
+/*==========================================================
+ AUTOGUARDADO LOCAL
+==========================================================*/
+
+function guardarLocal(){
+
+    localStorage.setItem(
+
+        "InformePericial",
+
+        JSON.stringify(informe)
+
+    );
+
+}
+
+function recuperarLocal(){
+
+    const datos = localStorage.getItem(
+
+        "InformePericial"
+
+    );
+
+    if(datos){
+
+        Object.assign(
+
+            informe,
+
+            JSON.parse(datos)
+
+        );
+
+    }
+
+    cargarDatos();
+
+}
+
+/*==========================================================
+ LIMPIAR INFORME
+==========================================================*/
+
+function limpiarInforme(){
+
+    if(
+
+        confirm(
+
+        "¿Desea crear un informe nuevo?"
+
+        )
+
+    ){
+
+        localStorage.removeItem(
+
+            "InformePericial"
+
+        );
+
+        nuevoInforme();
+
+    }
+
+}
+/*==========================================================
+ GESTIÓN DE ANEXOS
+==========================================================*/
+
+function agregarAnexo(descripcion,folios){
+
+    informe.anexos.push({
+
+        descripcion:descripcion,
+
+        folios:folios
+
+    });
+
+    cargarAnexos();
+
+    guardarLocal();
+
+}
+
+function eliminarAnexo(indice){
+
+    informe.anexos.splice(indice,1);
+
+    cargarAnexos();
+
+    guardarLocal();
+
+}
+
+function cargarAnexos(){
+
+    informe.anexos.forEach((anexo,i)=>{
+
+        const descripcion=document.getElementById(
+
+            "anexo"+(i+1)
+
+        );
+
+        const folio=document.getElementById(
+
+            "folio"+(i+1)
+
+        );
+
+        if(descripcion){
+
+            descripcion.textContent=anexo.descripcion;
+
+        }
+
+        if(folio){
+
+            folio.textContent=anexo.folios;
+
+        }
 
     });
 
 }
 
-
 /*==========================================================
-PIE DE PÁGINA
+ EVIDENCIAS FOTOGRÁFICAS
 ==========================================================*/
 
-function insertarPiePagina(){
+function agregarEvidencia(evento){
 
-    const paginas=document.querySelectorAll(".pagina");
+    const archivo=evento.target.files[0];
+
+    if(!archivo){
+
+        return;
+
+    }
+
+    const lector=new FileReader();
+
+    lector.onload=function(e){
+
+        informe.evidencias.push({
+
+            nombre:archivo.name,
+
+            imagen:e.target.result
+
+        });
+
+        cargarEvidencias();
+
+        guardarLocal();
+
+    };
+
+    lector.readAsDataURL(archivo);
+
+}
+
+function cargarEvidencias(){
+
+    informe.evidencias.forEach((imagen,i)=>{
+
+        const foto=document.getElementById(
+
+            "img"+(i+1)
+
+        );
+
+        const texto=document.getElementById(
+
+            "imgTexto"+(i+1)
+
+        );
+
+        if(foto){
+
+            foto.src=imagen.imagen;
+
+        }
+
+        if(texto){
+
+            texto.textContent=imagen.nombre;
+
+        }
+
+    });
+
+}
+
+function eliminarEvidencia(indice){
+
+    informe.evidencias.splice(indice,1);
+
+    cargarEvidencias();
+
+    guardarLocal();
+
+}
+/*==========================================================
+ NUMERACIÓN AUTOMÁTICA DE PÁGINAS
+==========================================================*/
+
+function numerarPaginas(){
+
+    const paginas = document.querySelectorAll(".pagina");
 
     paginas.forEach((pagina,indice)=>{
 
-        const pie=document.createElement("div");
+        let pie = pagina.querySelector(".pie-documento");
 
-        pie.className="pie";
+        if(!pie){
 
-        pie.innerHTML=`
+            pie = document.createElement("div");
+
+            pie.className = "pie-documento";
+
+            pagina.appendChild(pie);
+
+        }
+
+        pie.innerHTML = `
 
             <span>
 
@@ -71,137 +414,451 @@ function insertarPiePagina(){
 
             </span>
 
-            <span>
+            <span class="numero-pagina">
 
-                Página ${indice+1}
+                Página ${indice+1} de ${paginas.length}
 
             </span>
 
         `;
 
-        pagina.appendChild(pie);
-
     });
 
 }
 
-
 /*==========================================================
-ENCABEZADO
+ ENCABEZADO AUTOMÁTICO
 ==========================================================*/
 
-function insertarEncabezado(){
+function crearEncabezados(){
 
-    const paginas=document.querySelectorAll(".pagina");
+    document.querySelectorAll(".pagina").forEach((pagina)=>{
 
-    paginas.forEach((pagina,indice)=>{
-
-        if(indice===0){
+        if(pagina.classList.contains("portada")){
 
             return;
 
         }
 
-        const encabezado=document.createElement("div");
+        let encabezado = pagina.querySelector(".encabezado-documento");
 
-        encabezado.className="encabezado";
+        if(!encabezado){
 
-        encabezado.innerHTML=`
+            encabezado = document.createElement("div");
 
-            <h2>
+            encabezado.className = "encabezado-documento";
 
-                INFORME PERICIAL CONTABLE
+            encabezado.innerHTML = `
 
-            </h2>
+                <h4>
 
-            <span>
+                    INFORME PERICIAL CONTABLE
 
-                Exp. 00000-2026
+                </h4>
 
-            </span>
+                <span id="codigoInforme">
 
-        `;
+                </span>
 
-        pagina.insertBefore(encabezado,pagina.firstChild);
+            `;
 
-    });
+            pagina.prepend(encabezado);
 
-}
-
-
-/*==========================================================
-FECHA ACTUAL
-==========================================================*/
-
-function mostrarFechaActual(){
-
-    const fecha=new Date();
-
-    console.log(
-
-        "Fecha : ",
-
-        fecha.toLocaleDateString("es-PE")
-
-    );
-
-}
-
-
-/*==========================================================
-IMPRESIÓN
-==========================================================*/
-
-function configurarImpresion(){
-
-    window.addEventListener("beforeprint",()=>{
-
-        console.log("Preparando impresión...");
+        }
 
     });
 
 }
 
-
 /*==========================================================
-UTILIDADES
+ CÓDIGO DEL INFORME
 ==========================================================*/
 
-function imprimir(){
+function generarCodigo(){
+
+    const año = new Date().getFullYear();
+
+    const numero = String(
+
+        Math.floor(Math.random()*9999)+1
+
+    ).padStart(4,"0");
+
+    return `IPC-${año}-${numero}`;
+
+}
+
+function actualizarCodigo(){
+
+    const codigo = generarCodigo();
+
+    document.querySelectorAll("#codigoInforme")
+
+    .forEach(item=>{
+
+        item.textContent = codigo;
+
+    });
+
+}
+
+/*==========================================================
+ FECHA AUTOMÁTICA
+==========================================================*/
+
+function actualizarFecha(){
+
+    informe.fecha = fechaActual();
+
+    cargarDatos();
+
+}
+
+/*==========================================================
+ IMPRESIÓN
+==========================================================*/
+
+function imprimirInforme(){
 
     window.print();
 
 }
 
-
 /*==========================================================
-EXPORTACIONES FUTURAS
+ RECALCULAR SISTEMA
 ==========================================================*/
 
-/*
+function actualizarSistema(){
 
-Aquí irán posteriormente:
+    cargarDatos();
 
-✔ Generar PDF
+    cargarAnexos();
 
-✔ Índice automático
+    cargarEvidencias();
 
-✔ Numeración dinámica
+    crearEncabezados();
 
-✔ Firma digital
+    numerarPaginas();
 
-✔ Código QR
+    actualizarCodigo();
 
-✔ Cargar expediente
+}
 
-✔ Guardar expediente
+/*==========================================================
+ EVENTOS
+==========================================================*/
 
-✔ Abrir expediente
+window.addEventListener(
 
-✔ IA para redactar capítulos
+    "beforeprint",
 
-✔ Editor de tablas
+    numerarPaginas
 
-✔ Gestión de anexos
+);
 
-*/
+window.addEventListener(
+
+    "afterprint",
+
+    numerarPaginas
+
+);
+
+window.addEventListener(
+
+    "resize",
+
+    numerarPaginas
+
+);
+
+/*==========================================================
+ INICIALIZACIÓN
+==========================================================*/
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        recuperarLocal();
+
+        actualizarFecha();
+
+        actualizarSistema();
+
+    }
+
+);
+/*==========================================================
+ ÍNDICE AUTOMÁTICO
+==========================================================*/
+
+function actualizarIndice(){
+
+    const capitulos=document.querySelectorAll(".titulo-capitulo");
+
+    const indice=document.querySelector(".indice tbody");
+
+    if(!indice){
+
+        return;
+
+    }
+
+    indice.innerHTML="";
+
+    capitulos.forEach((capitulo,i)=>{
+
+        const fila=document.createElement("tr");
+
+        const titulo=capitulo.querySelector("h2").textContent;
+
+        fila.innerHTML=`
+
+            <td>${titulo}</td>
+
+            <td>${i+1}</td>
+
+        `;
+
+        indice.appendChild(fila);
+
+    });
+
+}
+
+/*==========================================================
+ BUSCADOR INTERNO
+==========================================================*/
+
+function buscar(texto){
+
+    texto=texto.toLowerCase();
+
+    const paginas=document.querySelectorAll(".pagina");
+
+    paginas.forEach(pagina=>{
+
+        const contenido=pagina.innerText.toLowerCase();
+
+        pagina.style.display=contenido.includes(texto)
+
+            ? "block"
+
+            : "none";
+
+    });
+
+}
+
+/*==========================================================
+ VALIDAR INFORME
+==========================================================*/
+
+function validarInforme(){
+
+    const errores=[];
+
+    if(!informe.expediente){
+
+        errores.push("Falta el expediente.");
+
+    }
+
+    if(!informe.juzgado){
+
+        errores.push("Falta el juzgado.");
+
+    }
+
+    if(!informe.demandante){
+
+        errores.push("Falta el demandante.");
+
+    }
+
+    if(!informe.demandado){
+
+        errores.push("Falta el demandado.");
+
+    }
+
+    if(!informe.perito){
+
+        errores.push("Falta el nombre del perito.");
+
+    }
+
+    return errores;
+
+}
+
+/*==========================================================
+ RESUMEN DEL INFORME
+==========================================================*/
+
+function resumenInforme(){
+
+    return{
+
+        paginas:document.querySelectorAll(".pagina").length,
+
+        anexos:informe.anexos.length,
+
+        evidencias:informe.evidencias.length,
+
+        fecha:informe.fecha,
+
+        expediente:informe.expediente
+
+    };
+
+}
+
+/*==========================================================
+ HISTORIAL DE CAMBIOS
+==========================================================*/
+
+const historial=[];
+
+function registrarCambio(descripcion){
+
+    historial.push({
+
+        fecha:new Date().toLocaleString("es-PE"),
+
+        accion:descripcion
+
+    });
+
+}
+
+/*==========================================================
+ EXPORTAR HISTORIAL
+==========================================================*/
+
+function exportarHistorial(){
+
+    const blob=new Blob(
+
+        [
+
+            JSON.stringify(
+
+                historial,
+
+                null,
+
+                4
+
+            )
+
+        ],
+
+        {
+
+            type:"application/json"
+
+        }
+
+    );
+
+    const enlace=document.createElement("a");
+
+    enlace.href=URL.createObjectURL(blob);
+
+    enlace.download="Historial.json";
+
+    enlace.click();
+
+}
+
+/*==========================================================
+ RESTABLECER SISTEMA
+==========================================================*/
+
+function reiniciarSistema(){
+
+    if(
+
+        confirm(
+
+            "¿Desea reiniciar completamente el sistema?"
+
+        )
+
+    ){
+
+        localStorage.clear();
+
+        location.reload();
+
+    }
+
+}
+
+/*==========================================================
+ ATAJOS DE TECLADO
+==========================================================*/
+
+document.addEventListener(
+
+    "keydown",
+
+    function(e){
+
+        if(e.ctrlKey && e.key==="p"){
+
+            e.preventDefault();
+
+            imprimirInforme();
+
+        }
+
+        if(e.ctrlKey && e.key==="s"){
+
+            e.preventDefault();
+
+            guardarInforme();
+
+        }
+
+    }
+
+);
+
+/*==========================================================
+ INFORMACIÓN DEL SISTEMA
+==========================================================*/
+
+console.log(
+
+"=========================================="
+
+);
+
+console.log(
+
+"SISTEMA PROFESIONAL DE INFORMES PERICIALES"
+
+);
+
+console.log(
+
+"Versión 1.0"
+
+);
+
+console.log(
+
+"Desarrollado en HTML5 + CSS3 + JavaScript"
+
+);
+
+console.log(
+
+"=========================================="
+
+);
