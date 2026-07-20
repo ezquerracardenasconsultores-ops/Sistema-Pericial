@@ -1,23 +1,37 @@
-/*==========================================================
-    SISTEMA PROFESIONAL DE INFORMES PERICIALES
-    VERSION 1.0
-==========================================================*/
-
+/* ==========================================================
+   SISTEMA PROFESIONAL DE INFORMES PERICIALES
+   style.css
+========================================================== */
 
 /*==========================================================
 RESET
 ==========================================================*/
 
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
 
 }
 
+body{
+
+    background:#d9d9d9;
+
+    font-family:"Times New Roman",serif;
+
+    color:#111;
+
+    line-height:1.6;
+
+    font-size:12pt;
+
+}
 
 /*==========================================================
 VARIABLES
@@ -25,106 +39,93 @@ VARIABLES
 
 :root{
 
-    --a4-width:210mm;
+    --colorPrincipal:#163a6b;
 
-    --a4-height:297mm;
+    --colorSecundario:#2f5c96;
 
-    --margen-superior:25mm;
+    --colorTitulo:#0d2d57;
 
-    --margen-derecho:25mm;
+    --colorBorde:#7c7c7c;
 
-    --margen-inferior:25mm;
+    --gris:#efefef;
 
-    --margen-izquierdo:30mm;
+    --grisOscuro:#5b5b5b;
 
-    --color-fondo:#d8d8d8;
+    --texto:#111;
 
-    --color-hoja:#ffffff;
+    --blanco:#ffffff;
 
-    --color-texto:#111111;
-
-    --color-linea:#444;
+    --rojo:#8d1f1f;
 
 }
 
-
 /*==========================================================
-HTML
+DOCUMENTO
 ==========================================================*/
 
-html{
+#documento{
 
-    font-size:16px;
+    width:210mm;
 
-    scroll-behavior:smooth;
-
-}
-
-
-/*==========================================================
-BODY
-==========================================================*/
-
-body{
-
-    background:var(--color-fondo);
-
-    color:var(--color-texto);
-
-    font-family:"Times New Roman", serif;
-
-    display:flex;
-
-    justify-content:center;
-
-    padding:30px;
+    margin:25px auto;
 
 }
 
-
 /*==========================================================
-CONTENEDOR GENERAL
-==========================================================*/
-
-#app{
-
-    width:var(--a4-width);
-
-}
-
-
-/*==========================================================
-HOJA A4
+PAGINA A4
 ==========================================================*/
 
 .pagina{
 
-    width:var(--a4-width);
+    position:relative;
 
-    min-height:var(--a4-height);
+    width:210mm;
 
-    background:var(--color-hoja);
+    min-height:297mm;
+
+    background:white;
+
+    padding:25mm 22mm;
 
     margin-bottom:20px;
 
-    padding:
+    box-shadow:0 0 12px rgba(0,0,0,.18);
 
-        var(--margen-superior)
-
-        var(--margen-derecho)
-
-        var(--margen-inferior)
-
-        var(--margen-izquierdo);
-
-    box-shadow:
-
-        0 0 15px rgba(0,0,0,.18);
-
-    position:relative;
+    page-break-after:always;
 
 }
 
+/*==========================================================
+IMPRESION
+==========================================================*/
+
+@media print{
+
+body{
+
+background:white;
+
+}
+
+#documento{
+
+width:100%;
+
+margin:0;
+
+}
+
+.pagina{
+
+margin:0;
+
+box-shadow:none;
+
+page-break-after:always;
+
+}
+
+}
 
 /*==========================================================
 TIPOGRAFIA
@@ -132,74 +133,89 @@ TIPOGRAFIA
 
 h1{
 
-    font-size:20pt;
+font-size:24pt;
 
-    font-weight:bold;
+font-weight:bold;
 
-    margin-bottom:12mm;
+color:var(--colorTitulo);
+
+text-align:center;
+
+margin-bottom:10px;
+
+text-transform:uppercase;
 
 }
 
 h2{
 
-    font-size:17pt;
+font-size:18pt;
 
-    font-weight:bold;
+font-weight:bold;
 
-    margin-bottom:8mm;
+margin-bottom:12px;
+
+color:var(--colorPrincipal);
 
 }
 
 h3{
 
-    font-size:14pt;
+font-size:14pt;
 
-    margin-bottom:5mm;
+margin-bottom:8px;
+
+color:var(--colorPrincipal);
+
+}
+
+h4{
+
+font-size:12pt;
+
+margin-bottom:8px;
 
 }
 
 p{
 
-    font-size:12pt;
+text-align:justify;
 
-    line-height:1.9;
-
-    text-align:justify;
-
-    margin-bottom:6mm;
+margin-bottom:10px;
 
 }
 
-li{
+ul{
 
-    font-size:12pt;
+margin-left:25px;
 
-    line-height:1.8;
-
-    margin-bottom:2mm;
+margin-bottom:12px;
 
 }
 
+ol{
+
+margin-left:25px;
+
+margin-bottom:12px;
+
+}
 
 /*==========================================================
-LINEA
+SEPARADORES
 ==========================================================*/
 
 hr{
 
-    border:none;
+border:none;
 
-    border-top:1px solid var(--color-linea);
+height:1px;
 
-    margin:
+background:#777;
 
-        8mm
-
-        0;
+margin:15px 0;
 
 }
-
-
 /*==========================================================
 PORTADA
 ==========================================================*/
@@ -214,151 +230,288 @@ PORTADA
 
 }
 
-.encabezado-portada{
+.marca-agua{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.05;
+
+    background-repeat:no-repeat;
+
+    background-position:center;
+
+    background-size:55%;
+
+    pointer-events:none;
+
+}
+
+.cabecera-portada{
 
     text-align:center;
 
-    font-size:16pt;
-
-    font-weight:bold;
+    margin-top:15mm;
 
 }
 
-.contenido-portada{
-
-    flex:1;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-}
-
-.titulo-principal{
-
-    text-align:center;
-
-    margin-bottom:30mm;
-
-}
-
-.titulo-principal h1{
+.cabecera-portada h1{
 
     font-size:28pt;
 
     letter-spacing:2px;
 
-    line-height:1.6;
+    color:var(--colorPrincipal);
+
+    margin-bottom:18px;
 
 }
 
-.datos-portada{
+.cabecera-portada h2{
 
-    display:flex;
+    font-size:16pt;
 
-    justify-content:center;
+    color:#444;
+
+    font-weight:normal;
 
 }
 
-.datos-portada table{
+.cabecera-portada h3{
+
+    font-size:14pt;
+
+    color:#222;
+
+    margin-bottom:15px;
+
+}
+
+.escudo{
+
+    width:140px;
+
+    height:140px;
+
+    margin:25px auto;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-size:contain;
+
+}
+
+/*==========================================================
+TABLA PORTADA
+==========================================================*/
+
+.tabla-portada{
+
+    width:100%;
 
     border-collapse:collapse;
 
-    width:90%;
+    margin-top:20px;
+
+    font-size:12pt;
 
 }
 
-.datos-portada td{
+.tabla-portada tr{
 
-    padding:4mm;
+    border-bottom:1px solid #d5d5d5;
 
-    font-size:12pt;
+}
+
+.tabla-portada td{
+
+    padding:9px;
 
     vertical-align:top;
 
 }
 
-.datos-portada td:nth-child(1){
+.tabla-portada .campo{
 
-    width:40%;
+    width:30%;
 
     font-weight:bold;
 
+    color:var(--colorPrincipal);
+
 }
 
-.datos-portada td:nth-child(2){
+.tabla-portada .separador{
 
-    width:5%;
+    width:20px;
 
     text-align:center;
 
 }
 
-.datos-portada td:nth-child(3){
-
-    width:55%;
-
-}
+/*==========================================================
+PIE PORTADA
+==========================================================*/
 
 .pie-portada{
 
+    margin-top:35mm;
+
     text-align:center;
+
+}
+
+.pie-portada h3{
+
+    font-size:16pt;
+
+    letter-spacing:2px;
+
+}
+
+.pie-portada h4{
+
+    font-size:15pt;
+
+    color:#444;
+
+    margin-top:10px;
+
+}
+
+/*==========================================================
+ENCABEZADOS DE CAPÍTULOS
+==========================================================*/
+
+.titulo-pagina{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.titulo-capitulo{
+
+    margin-bottom:20px;
+
+    border-bottom:3px solid var(--colorPrincipal);
+
+    padding-bottom:10px;
+
+}
+
+.titulo-capitulo h1{
+
+    font-size:22pt;
+
+    margin-bottom:6px;
+
+}
+
+.titulo-capitulo h2{
+
+    font-size:15pt;
+
+    text-transform:uppercase;
+
+    color:#444;
+
+}
+
+/*==========================================================
+CONTENIDO
+==========================================================*/
+
+.contenido-capitulo{
+
+    margin-top:15px;
+
+}
+
+.subcapitulo{
+
+    margin-bottom:28px;
+
+}
+
+.subcapitulo h3{
+
+    background:var(--colorPrincipal);
+
+    color:white;
+
+    padding:8px 12px;
+
+    border-left:6px solid #d19d00;
+
+    margin-bottom:15px;
+
+}
+
+.subcapitulo h4{
+
+    color:var(--colorPrincipal);
+
+    margin-top:12px;
+
+}
+
+/*==========================================================
+PÁRRAFOS
+==========================================================*/
+
+.contenido-capitulo p{
+
+    text-align:justify;
+
+    margin-bottom:12px;
+
+    text-indent:1cm;
+
+}
+/*==========================================================
+ÍNDICE
+==========================================================*/
+
+.indice{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+    font-size:11pt;
+
+}
+
+.indice td{
+
+    padding:7px 10px;
+
+    border-bottom:1px dotted #999;
+
+}
+
+.indice td:last-child{
+
+    width:60px;
+
+    text-align:right;
 
     font-weight:bold;
 
 }
-/*==========================================================
-CAPÍTULOS
-==========================================================*/
 
-.pagina h1{
+.indice tr:hover{
 
-    text-transform:uppercase;
-
-    text-align:left;
-
-    border-bottom:2px solid #000;
-
-    padding-bottom:5mm;
+    background:#f7f7f7;
 
 }
-
-.pagina h2{
-
-    margin-top:8mm;
-
-}
-
-.pagina h3{
-
-    margin-top:5mm;
-
-}
-
-.pagina ul{
-
-    margin-left:12mm;
-
-    margin-bottom:8mm;
-
-}
-
-.pagina ol{
-
-    margin-left:12mm;
-
-    margin-bottom:8mm;
-
-}
-
-.pagina li{
-
-    text-align:justify;
-
-}
-
 
 /*==========================================================
 TABLAS
@@ -370,23 +523,23 @@ table{
 
     border-collapse:collapse;
 
-    margin-top:5mm;
-
-    margin-bottom:8mm;
+    margin:18px 0;
 
 }
 
 thead{
 
-    background:#efefef;
+    background:var(--colorPrincipal);
+
+    color:white;
 
 }
 
-th{
+thead th{
 
-    border:1px solid #000;
+    padding:10px;
 
-    padding:3mm;
+    border:1px solid #444;
 
     font-size:11pt;
 
@@ -394,41 +547,171 @@ th{
 
 }
 
-td{
+tbody td{
 
-    border:1px solid #000;
+    padding:8px;
 
-    padding:3mm;
-
-    font-size:11pt;
+    border:1px solid #bdbdbd;
 
     vertical-align:top;
 
 }
 
+tbody tr:nth-child(even){
+
+    background:#fafafa;
+
+}
+
+tbody tr:hover{
+
+    background:#eef4ff;
+
+}
 
 /*==========================================================
-CUADROS FINANCIEROS
+TABLAS ESPECÍFICAS
+==========================================================*/
+
+.tabla-datos th,
+.tabla-procedimientos th,
+.tabla-alcance th,
+.tabla-analisis th,
+.tabla-cuadros th,
+.tabla-criterios th,
+.tabla-anexos th{
+
+    background:var(--colorPrincipal);
+
+    color:white;
+
+}
+
+.tabla-datos td:first-child{
+
+    font-weight:bold;
+
+    width:30%;
+
+}
+
+/*==========================================================
+CUADROS
 ==========================================================*/
 
 .cuadro{
 
-    border:2px solid #000;
+    border:2px solid var(--colorPrincipal);
 
-    padding:8mm;
+    padding:18px;
 
-    margin:10mm 0;
+    margin:18px 0;
+
+    background:white;
 
 }
 
 .cuadro h3{
 
-    text-align:center;
+    color:var(--colorPrincipal);
 
-    margin-bottom:6mm;
+    margin-bottom:10px;
 
 }
 
+/*==========================================================
+RECUADROS
+==========================================================*/
+
+.recuadro{
+
+    border-left:6px solid var(--colorPrincipal);
+
+    background:#f8f9fc;
+
+    padding:15px;
+
+    margin:20px 0;
+
+}
+
+.recuadro ul{
+
+    margin-top:10px;
+
+}
+
+/*==========================================================
+RESULTADOS
+==========================================================*/
+
+.resultado{
+
+    border:1px solid #d6d6d6;
+
+    background:#fcfcfc;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border-left:6px solid #1e7d32;
+
+}
+
+/*==========================================================
+METODOLOGÍA
+==========================================================*/
+
+.metodologia{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.paso{
+
+    display:flex;
+
+    align-items:center;
+
+    border:1px solid #dadada;
+
+    padding:10px;
+
+    background:white;
+
+}
+
+.paso span{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:var(--colorPrincipal);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:bold;
+
+    margin-right:12px;
+
+}
 
 /*==========================================================
 OBSERVACIONES
@@ -436,133 +719,236 @@ OBSERVACIONES
 
 .observacion{
 
-    border-left:5px solid #444;
+    border-left:6px solid #d35400;
 
-    background:#f7f7f7;
+    background:#fff7ef;
 
-    padding:6mm;
+    padding:15px;
 
-    margin:8mm 0;
+    margin:20px 0;
 
 }
 
+.observacion h4{
+
+    color:#b34700;
+
+    margin-bottom:10px;
+
+}
 
 /*==========================================================
-NOTAS
+CONCLUSIONES
 ==========================================================*/
 
-.nota{
+.lista-conclusiones{
 
-    font-size:10pt;
-
-    font-style:italic;
+    margin-left:30px;
 
 }
 
+.lista-conclusiones li{
+
+    margin-bottom:12px;
+
+    text-align:justify;
+
+}
 
 /*==========================================================
-FIRMA
+BIBLIOGRAFÍA
 ==========================================================*/
 
-.firma{
+.bibliografia{
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:flex-end;
+    margin-left:25px;
 
 }
+
+.bibliografia li{
+
+    margin-bottom:8px;
+
+}
+/*==========================================================
+FIRMA DEL PERITO
+==========================================================*/
 
 .firma-perito{
 
-    width:90mm;
+    margin-top:60px;
+
+}
+
+.espacio-firma{
+
+    width:420px;
+
+    margin:80px auto 40px auto;
 
     text-align:center;
 
-    font-size:12pt;
+}
+
+.linea-firma{
+
+    width:100%;
+
+    border-top:2px solid #000;
+
+    margin-bottom:12px;
 
 }
 
-.firma-perito hr{
+.espacio-firma h3{
 
-    margin-bottom:4mm;
+    color:var(--colorPrincipal);
 
-}
+    font-size:15pt;
 
-
-/*==========================================================
-IMÁGENES
-==========================================================*/
-
-img{
-
-    max-width:100%;
+    margin-bottom:8px;
 
 }
 
-.imagen{
+.espacio-firma p{
 
     text-align:center;
 
-    margin:10mm 0;
+    text-indent:0;
+
+    margin:4px 0;
 
 }
 
-.imagen p{
+.datos-firma{
 
-    text-align:center;
+    width:320px;
 
-    font-size:10pt;
+    margin-left:auto;
 
 }
 
+.datos-firma table{
+
+    border:none;
+
+}
+
+.datos-firma td{
+
+    border:none;
+
+    padding:4px;
+
+}
 
 /*==========================================================
 ANEXOS
 ==========================================================*/
 
-.anexo{
+.tabla-anexos{
 
-    border:1px dashed #888;
-
-    padding:8mm;
-
-    margin-bottom:8mm;
+    margin-top:20px;
 
 }
 
+.tabla-anexos td{
+
+    height:35px;
+
+}
+
+.anexo{
+
+    margin-top:30px;
+
+    page-break-inside:avoid;
+
+}
+
+.anexo h3{
+
+    color:var(--colorPrincipal);
+
+    border-bottom:2px solid var(--colorPrincipal);
+
+    padding-bottom:6px;
+
+    margin-bottom:15px;
+
+}
 
 /*==========================================================
-PIE DE PÁGINA
+GALERÍA DE EVIDENCIAS
 ==========================================================*/
 
-.pie{
+.galeria-evidencias{
 
-    position:absolute;
+    display:grid;
 
-    bottom:12mm;
+    grid-template-columns:repeat(2,1fr);
 
-    left:30mm;
+    gap:20px;
 
-    right:25mm;
+    margin-top:25px;
 
-    display:flex;
+}
 
-    justify-content:space-between;
+.evidencia{
+
+    border:1px solid #bfbfbf;
+
+    padding:10px;
+
+    background:#fff;
+
+    text-align:center;
+
+    page-break-inside:avoid;
+
+}
+
+.evidencia img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:contain;
+
+    border:1px solid #ddd;
+
+    background:#fafafa;
+
+}
+
+.evidencia p{
+
+    margin-top:8px;
+
+    text-align:center;
+
+    text-indent:0;
 
     font-size:10pt;
 
-    color:#666;
+    color:#555;
 
 }
 
-
 /*==========================================================
-ENCABEZADO
+ENCABEZADO REPETITIVO
 ==========================================================*/
 
-.encabezado{
+.encabezado-documento{
+
+    position:absolute;
+
+    top:12mm;
+
+    left:22mm;
+
+    right:22mm;
 
     display:flex;
 
@@ -570,53 +956,73 @@ ENCABEZADO
 
     align-items:center;
 
-    margin-bottom:10mm;
+    border-bottom:1px solid #777;
 
-    border-bottom:1px solid #000;
+    padding-bottom:6px;
 
-    padding-bottom:3mm;
+    font-size:10pt;
 
 }
 
-.encabezado h2{
+.encabezado-documento h4{
 
     margin:0;
 
-    font-size:13pt;
+    color:var(--colorPrincipal);
 
 }
-
 
 /*==========================================================
-SALTO DE PÁGINA
+PIE DE PÁGINA
 ==========================================================*/
 
-.salto{
+.pie-documento{
 
-    page-break-after:always;
+    position:absolute;
+
+    bottom:12mm;
+
+    left:22mm;
+
+    right:22mm;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    border-top:1px solid #999;
+
+    padding-top:6px;
+
+    font-size:10pt;
+
+    color:#555;
 
 }
 
+.numero-pagina{
+
+    font-weight:bold;
+
+}
 
 /*==========================================================
 UTILIDADES
 ==========================================================*/
 
-.centrado{
+.texto-centro{
 
-    text-align:center;
+    text-align:center !important;
 
-}
-
-.derecha{
-
-    text-align:right;
+    text-indent:0 !important;
 
 }
 
-.izquierda{
+.texto-derecha{
 
-    text-align:left;
+    text-align:right !important;
+
+    text-indent:0 !important;
 
 }
 
@@ -626,48 +1032,123 @@ UTILIDADES
 
 }
 
-.subrayado{
+.cursiva{
 
-    text-decoration:underline;
-
-}
-
-.mayusculas{
-
-    text-transform:uppercase;
+    font-style:italic;
 
 }
 
+.margen-superior{
+
+    margin-top:20px;
+
+}
+
+.margen-inferior{
+
+    margin-bottom:20px;
+
+}
+
+.sin-borde{
+
+    border:none !important;
+
+}
+
+.oculto{
+
+    display:none;
+
+}
 
 /*==========================================================
-IMPRESIÓN
+SALTOS DE PÁGINA
+==========================================================*/
+
+.salto-pagina{
+
+    page-break-before:always;
+
+}
+
+.no-salto{
+
+    page-break-inside:avoid;
+
+}
+
+/*==========================================================
+RESPONSIVE (EDICIÓN EN PANTALLA)
+==========================================================*/
+
+@media screen and (max-width:1200px){
+
+    #documento{
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    .pagina{
+
+        width:100%;
+
+        min-height:auto;
+
+        padding:30px;
+
+    }
+
+    .galeria-evidencias{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .metodologia{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/*==========================================================
+IMPRESIÓN FINAL
 ==========================================================*/
 
 @page{
 
     size:A4;
 
-    margin:20mm;
+    margin:18mm;
 
 }
 
 @media print{
 
-    body{
+    .pagina{
 
-        background:white;
-
-        padding:0;
+        page-break-after:always;
 
     }
 
-    .pagina{
+    a{
 
-        margin:0;
+        color:black;
 
-        box-shadow:none;
+        text-decoration:none;
 
-        page-break-after:always;
+    }
+
+    img{
+
+        print-color-adjust:exact;
+
+        -webkit-print-color-adjust:exact;
 
     }
 
