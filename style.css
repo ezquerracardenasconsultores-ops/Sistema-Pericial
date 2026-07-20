@@ -1,3 +1,34 @@
+/* =====================================================
+   SISTEMA PROFESIONAL DE INFORMES PERICIALES
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    font-size:16px;
+}
+
 body{
-    background:red;
+    background:#d9d9d9;
+    font-family:"Times New Roman", serif;
+    display:flex;
+    justify-content:center;
+    padding:30px;
+}
+
+#app{
+    width:210mm;
+}
+
+.pagina{
+    width:210mm;
+    min-height:297mm;
+    background:#ffffff;
+    padding:25mm;
+    margin-bottom:20px;
+    box-shadow:0 0 10px rgba(0,0,0,.20);
 }
