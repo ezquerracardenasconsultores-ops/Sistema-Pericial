@@ -84,3 +84,58 @@ body{
     margin-bottom:10mm;
 
 }
+/*==========================================
+ESTILOS DEL INFORME
+==========================================*/
+
+h1{
+
+    font-size:20pt;
+
+    font-weight:bold;
+
+    margin-bottom:12mm;
+
+}
+
+h2{
+
+    font-size:16pt;
+
+    font-weight:bold;
+
+    margin-bottom:8mm;
+
+}
+
+h3{
+
+    font-size:14pt;
+
+    font-weight:bold;
+
+    margin-bottom:5mm;
+
+}
+
+p{
+
+    font-size:12pt;
+
+    line-height:1.8;
+
+    text-align:justify;
+
+    margin-bottom:5mm;
+
+}
+
+hr{
+
+    margin:8mm 0;
+
+    border:none;
+
+    border-top:1px solid #000;
+
+}
