@@ -5,653 +5,2056 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
+    <title>Sistema Profesional de Informes Periciales Contables</title>
 
-        Sistema Profesional de Informes Periciales
-
-    </title>
-
-    <link rel="stylesheet"
-          href="./style.css?v=3">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div id="app">
+<div id="documento">
 
-<!--==================================================
-PORTADA
-===================================================-->
+<!-- ========================================================= -->
+<!--                      PORTADA                              -->
+<!-- ========================================================= -->
 
 <section class="pagina portada">
 
-    <header class="encabezado-portada">
+    <div class="marca-agua"></div>
 
-        <p>
+    <header class="cabecera-portada">
 
+        <h3>
             REPÚBLICA DEL PERÚ
+        </h3>
 
-        </p>
+        <h1>
+            INFORME PERICIAL CONTABLE
+        </h1>
+
+        <h2>
+            MODELO PROFESIONAL
+        </h2>
 
     </header>
 
+    <div class="escudo">
 
-    <main class="contenido-portada">
+        <!-- Escudo del Perú -->
 
-        <div class="titulo-principal">
+    </div>
 
-            <h1>
+    <table class="tabla-portada">
 
-                INFORME
-                <br>
-                PERICIAL
-                <br>
-                CONTABLE
+        <tr>
 
-            </h1>
+            <td class="campo">
+                EXPEDIENTE
+            </td>
 
-        </div>
+            <td class="separador">
+                :
+            </td>
 
+            <td id="expediente"></td>
 
-        <div class="datos-portada">
+        </tr>
 
-            <table>
+        <tr>
 
-                <tr>
+            <td class="campo">
+                JUZGADO
+            </td>
 
-                    <td>
+            <td>:</td>
 
-                        Expediente
+            <td id="juzgado"></td>
 
-                    </td>
+        </tr>
 
-                    <td>
+        <tr>
 
-                        :
+            <td class="campo">
+                ESPECIALISTA
+            </td>
 
-                    </td>
+            <td>:</td>
 
-                    <td>
+            <td id="especialista"></td>
 
-                        00000-2026
+        </tr>
 
-                    </td>
+        <tr>
 
-                </tr>
+            <td class="campo">
+                DEMANDANTE
+            </td>
 
-                <tr>
+            <td>:</td>
 
-                    <td>
+            <td id="demandante"></td>
 
-                        Materia
+        </tr>
 
-                    </td>
+        <tr>
 
-                    <td>
+            <td class="campo">
+                DEMANDADO
+            </td>
 
-                        :
+            <td>:</td>
 
-                    </td>
+            <td id="demandado"></td>
 
-                    <td>
+        </tr>
 
-                        ----------------------------
+        <tr>
 
-                    </td>
+            <td class="campo">
+                MATERIA
+            </td>
 
-                </tr>
+            <td>:</td>
 
-                <tr>
+            <td id="materia"></td>
 
-                    <td>
+        </tr>
 
-                        Demandante
+        <tr>
 
-                    </td>
+            <td class="campo">
+                PERITO
+            </td>
 
-                    <td>
+            <td>:</td>
 
-                        :
+            <td id="perito"></td>
 
-                    </td>
+        </tr>
 
-                    <td>
+        <tr>
 
-                        ----------------------------
+            <td class="campo">
+                REGISTRO
+            </td>
 
-                    </td>
+            <td>:</td>
 
-                </tr>
+            <td id="registro"></td>
 
-                <tr>
+        </tr>
 
-                    <td>
+        <tr>
 
-                        Demandado
+            <td class="campo">
+                FECHA
+            </td>
 
-                    </td>
+            <td>:</td>
 
-                    <td>
+            <td id="fecha"></td>
 
-                        :
+        </tr>
 
-                    </td>
-
-                    <td>
-
-                        ----------------------------
-
-                    </td>
-
-                </tr>
-
-                <tr>
-
-                    <td>
-
-                        Juzgado
-
-                    </td>
-
-                    <td>
-
-                        :
-
-                    </td>
-
-                    <td>
-
-                        ----------------------------
-
-                    </td>
-
-                </tr>
-
-                <tr>
-
-                    <td>
-
-                        Distrito Judicial
-
-                    </td>
-
-                    <td>
-
-                        :
-
-                    </td>
-
-                    <td>
-
-                        ----------------------------
-
-                    </td>
-
-                </tr>
-
-                <tr>
-
-                    <td>
-
-                        Perito
-
-                    </td>
-
-                    <td>
-
-                        :
-
-                    </td>
-
-                    <td>
-
-                        Jesús Ángel Cárdenas Simón
-
-                    </td>
-
-                </tr>
-
-            </table>
-
-        </div>
-
-    </main>
-
+    </table>
 
     <footer class="pie-portada">
 
-        <p>
+        <h3>
 
             LIMA - PERÚ
 
-        </p>
+        </h3>
 
-        <p>
+        <h4>
 
             2026
 
-        </p>
+        </h4>
 
     </footer>
 
 </section>
 
-<!--==================================================
-INDICE
-===================================================-->
+<!-- ========================================================= -->
+<!--                         ÍNDICE                            -->
+<!-- ========================================================= -->
 
-<section class="pagina indice">
+<section class="pagina">
 
-    <h1>
-
-        ÍNDICE
-
-    </h1>
-
-    <hr>
-
-    <ol>
-
-        <li>Introducción</li>
-
-        <li>Antecedentes</li>
-
-        <li>Objeto de la Pericia</li>
-
-        <li>Base Legal</li>
-
-        <li>Metodología</li>
-
-        <li>Documentación Examinada</li>
-
-        <li>Análisis Técnico</li>
-
-        <li>Desarrollo del Examen Pericial</li>
-
-        <li>Hallazgos</li>
-
-        <li>Conclusiones</li>
-
-        <li>Recomendaciones</li>
-
-        <li>Anexos</li>
-
-    </ol>
-
-</section>
-
-<!--==================================================
-CAPÍTULO I
-===================================================-->
-
-<section
-class="pagina">
+<header class="titulo-pagina">
 
 <h1>
 
-I.
+ÍNDICE
+
+</h1>
+
+</header>
+
+<table class="indice">
+        <tbody>
+
+            <tr>
+
+                <td>
+
+                    CAPÍTULO 0 &nbsp;&nbsp; INTRODUCCIÓN
+
+                </td>
+
+                <td class="pag">
+
+                    01
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    CAPÍTULO I &nbsp;&nbsp; ANTECEDENTES
+
+                </td>
+
+                <td>
+
+                    02
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    1.1 Disposiciones Fiscales
+
+                </td>
+
+                <td>
+
+                    02
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    1.2 Descripción de la Situación
+
+                </td>
+
+                <td>
+
+                    03
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    1.2.1 Descripción de los Hechos
+
+                </td>
+
+                <td>
+
+                    03
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    1.2.2 Procedimientos
+
+                </td>
+
+                <td>
+
+                    04
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    CAPÍTULO II &nbsp;&nbsp; OBJETO, ALCANCE Y METODOLOGÍA
+
+                </td>
+
+                <td>
+
+                    05
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    2.1 Objeto de la Pericia
+
+                </td>
+
+                <td>
+
+                    05
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    2.2 Alcance
+
+                </td>
+
+                <td>
+
+                    05
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    2.3 Metodología
+
+                </td>
+
+                <td>
+
+                    06
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    CAPÍTULO III &nbsp;&nbsp; EXAMEN
+
+                </td>
+
+                <td>
+
+                    07
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    3.1 Exposición Detallada
+
+                </td>
+
+                <td>
+
+                    07
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    3.1.1 Análisis de la Problemática
+
+                </td>
+
+                <td>
+
+                    08
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    3.1.2 Indicios
+
+                </td>
+
+                <td>
+
+                    09
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    3.1.3 Análisis
+
+                </td>
+
+                <td>
+
+                    10
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    3.1.4 Resultados
+
+                </td>
+
+                <td>
+
+                    11
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    3.2 Fundamentación
+
+                </td>
+
+                <td>
+
+                    12
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    3.3 Criterios Científicos
+
+                </td>
+
+                <td>
+
+                    13
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    CAPÍTULO IV &nbsp;&nbsp; CONCLUSIONES
+
+                </td>
+
+                <td>
+
+                    14
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    CAPÍTULO V &nbsp;&nbsp; FECHA, SELLO Y FIRMA
+
+                </td>
+
+                <td>
+
+                    15
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    CAPÍTULO VI &nbsp;&nbsp; BIBLIOGRAFÍA
+
+                </td>
+
+                <td>
+
+                    16
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    CAPÍTULO VII &nbsp;&nbsp; ANEXOS
+
+                </td>
+
+                <td>
+
+                    17
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ========================================================= -->
+<!--                CAPÍTULO 0                                -->
+<!-- ========================================================= -->
+
+<section class="pagina">
+
+<header class="titulo-capitulo">
+
+<h1>
+
+CAPÍTULO 0
+
+</h1>
+
+<h2>
+
 INTRODUCCIÓN
 
-</h1>
+</h2>
 
-<hr>
+</header>
+
+<article class="contenido-capitulo">
 
 <p>
 
-Lorem ipsum dolor sit amet,
-consectetur adipiscing elit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+viverra, erat sed varius faucibus, magna risus cursus justo,
+vel posuere est nunc sed neque.
 
 </p>
 
 <p>
 
-Lorem ipsum dolor sit amet,
-consectetur adipiscing elit.
+Suspendisse potenti. Praesent condimentum magna sed
+mauris placerat, nec gravida augue dignissim.
 
 </p>
+
+<p>
+
+Curabitur sed arcu eget lectus consequat suscipit.
+
+</p>
+
+</article>
 
 </section>
 
-<!--==================================================
-CAPÍTULO II
-===================================================-->
+<!-- ========================================================= -->
+<!--                CAPÍTULO I                                -->
+<!-- ========================================================= -->
 
-<section
-class="pagina">
+<section class="pagina">
+
+<header class="titulo-capitulo">
 
 <h1>
 
-II.
-ANTECEDENTES
+CAPÍTULO I
 
 </h1>
 
-<hr>
+<h2>
 
-<p>
+ANTECEDENTES
 
-Lorem ipsum dolor sit amet.
+</h2>
 
-</p>
+</header>
+<article class="contenido-capitulo">
 
-<p>
+    <!-- ============================================== -->
+    <!-- 1.1 DISPOSICIONES FISCALES -->
+    <!-- ============================================== -->
 
-Lorem ipsum dolor sit amet.
+    <section class="subcapitulo">
 
-</p>
+        <h3>
+
+            1.1 DISPOSICIONES FISCALES
+
+        </h3>
+
+        <p>
+
+            En este apartado se describen las disposiciones emitidas por
+            el Ministerio Público, Juzgado o autoridad competente que
+            originan la designación del Perito Contable Judicial.
+
+        </p>
+
+        <table class="tabla-datos">
+
+            <tr>
+
+                <th width="30%">
+
+                    Documento
+
+                </th>
+
+                <td>
+
+                    ....................................................
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>
+
+                    Fecha
+
+                </th>
+
+                <td>
+
+                    ....................................................
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>
+
+                    Autoridad
+
+                </th>
+
+                <td>
+
+                    ....................................................
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>
+
+                    Objeto
+
+                </th>
+
+                <td>
+
+                    ....................................................
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 1.2 DESCRIPCIÓN DE LA SITUACIÓN -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            1.2 DESCRIPCIÓN DE LA SITUACIÓN
+
+        </h3>
+
+        <p>
+
+            Se expone de manera resumida la situación materia de examen,
+            indicando el contexto del proceso y la documentación
+            proporcionada para el desarrollo de la pericia.
+
+        </p>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 1.2.1 DESCRIPCIÓN DE LOS HECHOS -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            1.2.1 DESCRIPCIÓN DE LOS HECHOS
+
+        </h3>
+
+        <p>
+
+            Describir cronológicamente los hechos relevantes que dieron
+            origen al proceso judicial o fiscal.
+
+        </p>
+
+        <div class="recuadro">
+
+            <h4>
+
+                HECHOS RELEVANTES
+
+            </h4>
+
+            <ul>
+
+                <li>Hecho N.° 01</li>
+
+                <li>Hecho N.° 02</li>
+
+                <li>Hecho N.° 03</li>
+
+                <li>Hecho N.° 04</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 1.2.2 PROCEDIMIENTOS -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            1.2.2 PROCEDIMIENTOS
+
+        </h3>
+
+        <p>
+
+            Se detallan los procedimientos aplicados durante la revisión
+            documental y el examen técnico-contable.
+
+        </p>
+
+        <table class="tabla-procedimientos">
+
+            <thead>
+
+                <tr>
+
+                    <th width="10%">
+
+                        N°
+
+                    </th>
+
+                    <th>
+
+                        PROCEDIMIENTO
+
+                    </th>
+
+                    <th width="20%">
+
+                        RESULTADO
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+
+                        01
+
+                    </td>
+
+                    <td>
+
+                        Revisión documental.
+
+                    </td>
+
+                    <td>
+
+                        Conforme
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        02
+
+                    </td>
+
+                    <td>
+
+                        Verificación contable.
+
+                    </td>
+
+                    <td>
+
+                        Conforme
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        03
+
+                    </td>
+
+                    <td>
+
+                        Conciliación de registros.
+
+                    </td>
+
+                    <td>
+
+                        Conforme
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</article>
 
 </section>
-<!--==================================================
+
+<!-- ========================================================= -->
+<!--                CAPÍTULO II                               -->
+<!-- ========================================================= -->
+
+<section class="pagina">
+
+<header class="titulo-capitulo">
+
+<h1>
+
+CAPÍTULO II
+
+</h1>
+
+<h2>
+
+OBJETO, ALCANCE Y METODOLOGÍA
+
+</h2>
+
+</header>
+
+<article class="contenido-capitulo">
+    <!-- ============================================== -->
+    <!-- 2.1 OBJETO DE LA PERICIA -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            2.1 OBJETO DE LA PERICIA
+
+        </h3>
+
+        <p>
+
+            El objeto de la presente pericia consiste en efectuar el
+            examen técnico, contable, financiero y documental de la
+            información contenida en el expediente, con la finalidad de
+            emitir una opinión profesional sustentada.
+
+        </p>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 2.2 ALCANCE -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            2.2 ALCANCE
+
+        </h3>
+
+        <p>
+
+            El examen comprende únicamente la documentación
+            incorporada al expediente y aquella que haya sido
+            proporcionada oficialmente al Perito.
+
+        </p>
+
+        <table class="tabla-alcance">
+
+            <thead>
+
+                <tr>
+
+                    <th width="10%">
+
+                        Nº
+
+                    </th>
+
+                    <th>
+
+                        DOCUMENTACIÓN
+
+                    </th>
+
+                    <th width="20%">
+
+                        ESTADO
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+
+                        01
+
+                    </td>
+
+                    <td>
+
+                        Expediente Judicial
+
+                    </td>
+
+                    <td>
+
+                        Revisado
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        02
+
+                    </td>
+
+                    <td>
+
+                        Contratos
+
+                    </td>
+
+                    <td>
+
+                        Revisado
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        03
+
+                    </td>
+
+                    <td>
+
+                        Estados Financieros
+
+                    </td>
+
+                    <td>
+
+                        Revisado
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        04
+
+                    </td>
+
+                    <td>
+
+                        Comprobantes de Pago
+
+                    </td>
+
+                    <td>
+
+                        Revisado
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 2.3 METODOLOGÍA -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            2.3 METODOLOGÍA
+
+        </h3>
+
+        <p>
+
+            Para el desarrollo del presente informe se aplicaron
+            procedimientos técnicos de revisión documental,
+            comprobación, análisis comparativo, conciliación,
+            reconstrucción cronológica y evaluación contable.
+
+        </p>
+
+        <div class="metodologia">
+
+            <div class="paso">
+
+                <span>1</span>
+
+                Recolección de información.
+
+            </div>
+
+            <div class="paso">
+
+                <span>2</span>
+
+                Clasificación documental.
+
+            </div>
+
+            <div class="paso">
+
+                <span>3</span>
+
+                Verificación técnica.
+
+            </div>
+
+            <div class="paso">
+
+                <span>4</span>
+
+                Análisis contable.
+
+            </div>
+
+            <div class="paso">
+
+                <span>5</span>
+
+                Elaboración de cuadros.
+
+            </div>
+
+            <div class="paso">
+
+                <span>6</span>
+
+                Emisión del Informe.
+
+            </div>
+
+        </div>
+
+    </section>
+
+</article>
+
+</section>
+
+<!-- ========================================================= -->
+<!--                CAPÍTULO III                              -->
+<!-- ========================================================= -->
+
+<section class="pagina">
+
+<header class="titulo-capitulo">
+
+<h1>
+
 CAPÍTULO III
-===================================================-->
 
-<section class="pagina">
+</h1>
 
-    <h1>
+<h2>
 
-        III.
-        OBJETO DE LA PERICIA
+EXAMEN
 
-    </h1>
+</h2>
 
-    <hr>
+</header>
 
-    <p>
+<article class="contenido-capitulo">
+    <!-- ============================================== -->
+    <!-- 3.1 EXPOSICIÓN DETALLADA -->
+    <!-- ============================================== -->
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <section class="subcapitulo">
 
-    </p>
+        <h3>
 
-    <p>
+            3.1 EXPOSICIÓN DETALLADA
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </h3>
 
-    </p>
+        <p>
+
+            En este capítulo se desarrolla el examen técnico de la
+            documentación revisada, describiendo en forma cronológica
+            todos los procedimientos efectuados por el Perito.
+
+        </p>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3.1.1 ANÁLISIS DE LA PROBLEMÁTICA -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            3.1.1 ANÁLISIS DE LA PROBLEMÁTICA
+
+        </h3>
+
+        <p>
+
+            Identificar claramente el problema materia del examen,
+            describiendo su origen, incidencia y efectos económicos,
+            financieros o contables.
+
+        </p>
+
+        <table class="tabla-analisis">
+
+            <thead>
+
+                <tr>
+
+                    <th width="35%">
+
+                        Aspecto
+
+                    </th>
+
+                    <th>
+
+                        Descripción
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+
+                        Hecho observado
+
+                    </td>
+
+                    <td id="hecho_observado">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        Evidencia
+
+                    </td>
+
+                    <td id="evidencia">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        Riesgo
+
+                    </td>
+
+                    <td id="riesgo">
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3.1.2 INDICIOS -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            3.1.2 INDICIOS
+
+        </h3>
+
+        <div class="recuadro">
+
+            <ul>
+
+                <li id="indicio1"></li>
+
+                <li id="indicio2"></li>
+
+                <li id="indicio3"></li>
+
+                <li id="indicio4"></li>
+
+                <li id="indicio5"></li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3.1.3 ANÁLISIS -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            3.1.3 ANÁLISIS
+
+        </h3>
+
+        <p id="analisis_general">
+
+        </p>
+
+        <table class="tabla-cuadros">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+
+                        Concepto
+
+                    </th>
+
+                    <th>
+
+                        Valor
+
+                    </th>
+
+                    <th>
+
+                        Observación
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+
+                        Monto Analizado
+
+                    </td>
+
+                    <td id="monto_analizado"></td>
+
+                    <td id="obs_monto"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        Diferencia
+
+                    </td>
+
+                    <td id="diferencia"></td>
+
+                    <td id="obs_diferencia"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        Variación
+
+                    </td>
+
+                    <td id="variacion"></td>
+
+                    <td id="obs_variacion"></td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3.1.4 RESULTADOS -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            3.1.4 RESULTADOS
+
+        </h3>
+
+        <div class="resultado">
+
+            <p id="resultado1"></p>
+
+        </div>
+
+        <div class="resultado">
+
+            <p id="resultado2"></p>
+
+        </div>
+
+        <div class="resultado">
+
+            <p id="resultado3"></p>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3.2 FUNDAMENTACIÓN -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            3.2 FUNDAMENTACIÓN
+
+        </h3>
+
+        <p id="fundamentacion">
+
+        </p>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3.3 CRITERIOS CIENTÍFICOS -->
+    <!-- ============================================== -->
+
+    <section class="subcapitulo">
+
+        <h3>
+
+            3.3 CRITERIOS CIENTÍFICOS
+
+        </h3>
+
+        <table class="tabla-criterios">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+
+                        Criterio
+
+                    </th>
+
+                    <th>
+
+                        Aplicación
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+
+                        Principio Contable
+
+                    </td>
+
+                    <td id="criterio1"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        Norma Técnica
+
+                    </td>
+
+                    <td id="criterio2"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        Jurisprudencia
+
+                    </td>
+
+                    <td id="criterio3"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        Doctrina
+
+                    </td>
+
+                    <td id="criterio4"></td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</article>
 
 </section>
 
-<!--==================================================
+<!-- ========================================================= -->
+<!--                CAPÍTULO IV                               -->
+<!-- ========================================================= -->
+
+<section class="pagina">
+
+<header class="titulo-capitulo">
+
+<h1>
+
 CAPÍTULO IV
-===================================================-->
 
-<section class="pagina">
+</h1>
 
-    <h1>
+<h2>
 
-        IV.
-        BASE LEGAL
+CONCLUSIONES
 
-    </h1>
+</h2>
 
-    <hr>
+</header>
 
-    <p>
+<article class="contenido-capitulo">
+    <!-- ============================================== -->
+    <!-- CONCLUSIONES -->
+    <!-- ============================================== -->
 
-        Constitución Política del Perú.
+    <section class="subcapitulo">
 
-    </p>
+        <h3>
 
-    <p>
+            CONCLUSIONES
 
-        Código Procesal Civil.
+        </h3>
 
-    </p>
+        <ol class="lista-conclusiones">
 
-    <p>
+            <li id="conclusion1">
 
-        Código Civil.
+            </li>
 
-    </p>
+            <li id="conclusion2">
 
-    <p>
+            </li>
 
-        Normas Internacionales aplicables.
+            <li id="conclusion3">
 
-    </p>
+            </li>
+
+            <li id="conclusion4">
+
+            </li>
+
+            <li id="conclusion5">
+
+            </li>
+
+        </ol>
+
+    </section>
+
+</article>
 
 </section>
 
-<!--==================================================
+<!-- ========================================================= -->
+<!--                CAPÍTULO V                                -->
+<!-- ========================================================= -->
+
+<section class="pagina">
+
+<header class="titulo-capitulo">
+
+<h1>
+
 CAPÍTULO V
-===================================================-->
 
-<section class="pagina">
+</h1>
 
-    <h1>
+<h2>
 
-        V.
-        METODOLOGÍA
+FECHA, SELLO Y FIRMA
 
-    </h1>
+</h2>
 
-    <hr>
+</header>
 
-    <p>
+<article class="contenido-capitulo">
 
-        Describir la metodología empleada para la elaboración del informe.
+<div class="firma-perito">
 
-    </p>
+<p>
+
+Es todo cuanto informo a Usted, en honor a la verdad,
+conforme a los documentos examinados y a los principios
+técnicos de la profesión contable.
+
+</p>
+
+<div class="espacio-firma">
+
+<div class="linea-firma"></div>
+
+<h3>
+
+PERITO CONTABLE JUDICIAL
+
+</h3>
+
+<p id="nombrePerito">
+
+Jesús Ángel Cárdenas Simón
+
+</p>
+
+<p id="colegiatura">
+
+Contador Público Colegiado
+
+</p>
+
+<p id="registroPerito">
+
+Registro de Peritos Judiciales
+
+</p>
+
+</div>
+
+<div class="datos-firma">
+
+<table>
+
+<tr>
+
+<td>
+
+Lugar
+
+</td>
+
+<td>
+
+:
+
+</td>
+
+<td id="lugar">
+
+Lima
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Fecha
+
+</td>
+
+<td>
+
+:
+
+</td>
+
+<td id="fechaInforme">
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</article>
 
 </section>
 
-<!--==================================================
+<!-- ========================================================= -->
+<!--                CAPÍTULO VI                               -->
+<!-- ========================================================= -->
+
+<section class="pagina">
+
+<header class="titulo-capitulo">
+
+<h1>
+
 CAPÍTULO VI
-===================================================-->
 
-<section class="pagina">
+</h1>
 
-    <h1>
+<h2>
 
-        VI.
-        DOCUMENTACIÓN EXAMINADA
+BIBLIOGRAFÍA
 
-    </h1>
+</h2>
 
-    <hr>
+</header>
 
-    <ul>
+<article class="contenido-capitulo">
 
-        <li>Demanda.</li>
+<ul class="bibliografia">
 
-        <li>Contestación.</li>
+<li>
 
-        <li>Medios probatorios.</li>
+Constitución Política del Perú.
 
-        <li>Expediente Judicial.</li>
+</li>
 
-        <li>Documentación contable.</li>
+<li>
 
-        <li>Estados financieros.</li>
+Código Procesal Penal.
 
-        <li>Contratos.</li>
+</li>
 
-        <li>Comprobantes de pago.</li>
+<li>
 
-        <li>Estados de cuenta.</li>
+Código Procesal Civil.
 
-    </ul>
+</li>
+
+<li>
+
+Código Civil.
+
+</li>
+
+<li>
+
+Normas Internacionales de Información Financiera (NIIF).
+
+</li>
+
+<li>
+
+Normas Internacionales de Auditoría (NIA).
+
+</li>
+
+<li>
+
+Normas Internacionales de Contabilidad (NIC).
+
+</li>
+
+<li>
+
+Manual de Pericias Contables.
+
+</li>
+
+<li>
+
+Doctrina especializada.
+
+</li>
+
+<li>
+
+Jurisprudencia aplicable.
+
+</li>
+
+</ul>
+
+</article>
 
 </section>
 
-<!--==================================================
+<!-- ========================================================= -->
+<!--                CAPÍTULO VII                              -->
+<!-- ========================================================= -->
+
+<section class="pagina">
+
+<header class="titulo-capitulo">
+
+<h1>
+
 CAPÍTULO VII
-===================================================-->
 
-<section class="pagina">
+</h1>
 
-    <h1>
+<h2>
 
-        VII.
-        ANÁLISIS TÉCNICO
+ANEXOS
 
-    </h1>
+</h2>
 
-    <hr>
+</header>
 
-    <p>
+<article class="contenido-capitulo">
+    <!-- ============================================== -->
+    <!-- RELACIÓN DE ANEXOS -->
+    <!-- ============================================== -->
 
-        Aquí se desarrollará el análisis técnico pericial.
+    <section class="subcapitulo">
 
-    </p>
+        <h3>
 
-</section>
+            RELACIÓN DE ANEXOS
 
-<!--==================================================
-CAPÍTULO VIII
-===================================================-->
+        </h3>
 
-<section class="pagina">
+        <table class="tabla-anexos">
 
-    <h1>
+            <thead>
 
-        VIII.
-        DESARROLLO DEL EXAMEN PERICIAL
+                <tr>
 
-    </h1>
+                    <th width="10%">
 
-    <hr>
+                        Nº
 
-    <p>
+                    </th>
 
-        Desarrollo detallado de la pericia.
+                    <th width="55%">
 
-    </p>
+                        DESCRIPCIÓN
 
-</section>
+                    </th>
 
-<!--==================================================
-CAPÍTULO IX
-===================================================-->
+                    <th width="15%">
 
-<section class="pagina">
+                        FOLIOS
 
-    <h1>
+                    </th>
 
-        IX.
-        HALLAZGOS
+                    <th width="20%">
 
-    </h1>
+                        OBSERVACIÓN
 
-    <hr>
+                    </th>
 
-    <ol>
+                </tr>
 
-        <li>Hallazgo Nº 01.</li>
+            </thead>
 
-        <li>Hallazgo Nº 02.</li>
+            <tbody>
 
-        <li>Hallazgo Nº 03.</li>
+                <tr>
 
-    </ol>
+                    <td>1</td>
 
-</section>
+                    <td id="anexo1"></td>
 
-<!--==================================================
-CAPÍTULO X
-===================================================-->
+                    <td id="folio1"></td>
 
-<section class="pagina">
+                    <td></td>
 
-    <h1>
+                </tr>
 
-        X.
-        CONCLUSIONES
+                <tr>
 
-    </h1>
+                    <td>2</td>
 
-    <hr>
+                    <td id="anexo2"></td>
 
-    <ol>
+                    <td id="folio2"></td>
 
-        <li>Conclusión Nº 01.</li>
+                    <td></td>
 
-        <li>Conclusión Nº 02.</li>
+                </tr>
 
-        <li>Conclusión Nº 03.</li>
+                <tr>
 
-    </ol>
+                    <td>3</td>
 
-</section>
+                    <td id="anexo3"></td>
 
-<!--==================================================
-CAPÍTULO XI
-===================================================-->
+                    <td id="folio3"></td>
 
-<section class="pagina">
+                    <td></td>
 
-    <h1>
+                </tr>
 
-        XI.
-        RECOMENDACIONES
+                <tr>
 
-    </h1>
+                    <td>4</td>
 
-    <hr>
+                    <td id="anexo4"></td>
 
-    <ol>
+                    <td id="folio4"></td>
 
-        <li>Recomendación Nº 01.</li>
+                    <td></td>
 
-        <li>Recomendación Nº 02.</li>
+                </tr>
 
-    </ol>
+                <tr>
 
-</section>
+                    <td>5</td>
 
-<!--==================================================
-CAPÍTULO XII
-===================================================-->
+                    <td id="anexo5"></td>
 
-<section class="pagina">
+                    <td id="folio5"></td>
 
-    <h1>
+                    <td></td>
 
-        XII.
-        ANEXOS
+                </tr>
 
-    </h1>
+            </tbody>
 
-    <hr>
+        </table>
 
-    <p>
+    </section>
 
-        En esta sección se incorporarán todos los anexos utilizados para sustentar el informe pericial.
+    <!-- ============================================== -->
+    <!-- EVIDENCIAS -->
+    <!-- ============================================== -->
 
-    </p>
+    <section class="subcapitulo">
 
-</section>
+        <h3>
 
-<!--==================================================
-FIRMA
-===================================================-->
+            EVIDENCIAS DOCUMENTALES
 
-<section class="pagina firma">
+        </h3>
 
-    <div class="firma-perito">
+        <div class="galeria-evidencias">
 
-        <br><br><br><br><br><br><br>
+            <div class="evidencia">
 
-        _________________________________
+                <img id="img1" src="" alt="">
 
-        <br><br>
+                <p id="imgTexto1"></p>
 
-        JESÚS ÁNGEL CÁRDENAS SIMÓN
+            </div>
 
-        <br>
+            <div class="evidencia">
 
-        PERITO CONTABLE
+                <img id="img2" src="" alt="">
 
-    </div>
+                <p id="imgTexto2"></p>
+
+            </div>
+
+            <div class="evidencia">
+
+                <img id="img3" src="" alt="">
+
+                <p id="imgTexto3"></p>
+
+            </div>
+
+            <div class="evidencia">
+
+                <img id="img4" src="" alt="">
+
+                <p id="imgTexto4"></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</article>
 
 </section>
 
 </div>
 
-<script src="./script.js"></script>
+<script src="script.js"></script>
 
 </body>
 
