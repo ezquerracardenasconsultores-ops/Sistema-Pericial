@@ -1,92 +1,134 @@
-/* =====================================================
-   SISTEMA PROFESIONAL DE INFORMES PERICIALES
-===================================================== */
+/*==========================================================
+    SISTEMA PROFESIONAL DE INFORMES PERICIALES
+    VERSION 1.0
+==========================================================*/
+
+
+/*==========================================================
+RESET
+==========================================================*/
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
+
+
+/*==========================================================
+VARIABLES
+==========================================================*/
+
+:root{
+
+    --a4-width:210mm;
+
+    --a4-height:297mm;
+
+    --margen-superior:25mm;
+
+    --margen-derecho:25mm;
+
+    --margen-inferior:25mm;
+
+    --margen-izquierdo:30mm;
+
+    --color-fondo:#d8d8d8;
+
+    --color-hoja:#ffffff;
+
+    --color-texto:#111111;
+
+    --color-linea:#444;
+
+}
+
+
+/*==========================================================
+HTML
+==========================================================*/
 
 html{
+
     font-size:16px;
+
+    scroll-behavior:smooth;
+
 }
+
+
+/*==========================================================
+BODY
+==========================================================*/
 
 body{
-    background:#d9d9d9;
+
+    background:var(--color-fondo);
+
+    color:var(--color-texto);
+
     font-family:"Times New Roman", serif;
+
     display:flex;
+
     justify-content:center;
+
     padding:30px;
+
 }
+
+
+/*==========================================================
+CONTENEDOR GENERAL
+==========================================================*/
 
 #app{
-    width:210mm;
+
+    width:var(--a4-width);
+
 }
+
+
+/*==========================================================
+HOJA A4
+==========================================================*/
 
 .pagina{
-    width:210mm;
-    min-height:297mm;
-    background:#ffffff;
-    padding:25mm;
+
+    width:var(--a4-width);
+
+    min-height:var(--a4-height);
+
+    background:var(--color-hoja);
+
     margin-bottom:20px;
-    box-shadow:0 0 10px rgba(0,0,0,.20);
-}
-.portada{
 
-    text-align:center;
+    padding:
 
-    margin-top:30mm;
+        var(--margen-superior)
 
-}
+        var(--margen-derecho)
 
-.portada h2{
+        var(--margen-inferior)
 
-    font-size:18pt;
+        var(--margen-izquierdo);
 
-    font-weight:bold;
+    box-shadow:
 
-    margin-bottom:25mm;
+        0 0 15px rgba(0,0,0,.18);
 
-}
-
-.portada h1{
-
-    font-size:24pt;
-
-    font-weight:bold;
-
-    text-transform:uppercase;
-
-}
-.espacio{
-
-    height:20mm;
+    position:relative;
 
 }
 
-.portada h3{
 
-    margin-bottom:5mm;
-
-    font-size:14pt;
-
-    text-align:center;
-
-}
-
-.portada p{
-
-    text-align:center;
-
-    font-size:14pt;
-
-    margin-bottom:10mm;
-
-}
-/*==========================================
-ESTILOS DEL INFORME
-==========================================*/
+/*==========================================================
+TIPOGRAFIA
+==========================================================*/
 
 h1{
 
@@ -100,7 +142,7 @@ h1{
 
 h2{
 
-    font-size:16pt;
+    font-size:17pt;
 
     font-weight:bold;
 
@@ -112,8 +154,6 @@ h3{
 
     font-size:14pt;
 
-    font-weight:bold;
-
     margin-bottom:5mm;
 
 }
@@ -122,20 +162,513 @@ p{
 
     font-size:12pt;
 
-    line-height:1.8;
+    line-height:1.9;
 
     text-align:justify;
 
-    margin-bottom:5mm;
+    margin-bottom:6mm;
 
 }
 
-hr{
+li{
 
-    margin:8mm 0;
+    font-size:12pt;
+
+    line-height:1.8;
+
+    margin-bottom:2mm;
+
+}
+
+
+/*==========================================================
+LINEA
+==========================================================*/
+
+hr{
 
     border:none;
 
-    border-top:1px solid #000;
+    border-top:1px solid var(--color-linea);
+
+    margin:
+
+        8mm
+
+        0;
+
+}
+
+
+/*==========================================================
+PORTADA
+==========================================================*/
+
+.portada{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+.encabezado-portada{
+
+    text-align:center;
+
+    font-size:16pt;
+
+    font-weight:bold;
+
+}
+
+.contenido-portada{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.titulo-principal{
+
+    text-align:center;
+
+    margin-bottom:30mm;
+
+}
+
+.titulo-principal h1{
+
+    font-size:28pt;
+
+    letter-spacing:2px;
+
+    line-height:1.6;
+
+}
+
+.datos-portada{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.datos-portada table{
+
+    border-collapse:collapse;
+
+    width:90%;
+
+}
+
+.datos-portada td{
+
+    padding:4mm;
+
+    font-size:12pt;
+
+    vertical-align:top;
+
+}
+
+.datos-portada td:nth-child(1){
+
+    width:40%;
+
+    font-weight:bold;
+
+}
+
+.datos-portada td:nth-child(2){
+
+    width:5%;
+
+    text-align:center;
+
+}
+
+.datos-portada td:nth-child(3){
+
+    width:55%;
+
+}
+
+.pie-portada{
+
+    text-align:center;
+
+    font-weight:bold;
+
+}
+/*==========================================================
+CAPÍTULOS
+==========================================================*/
+
+.pagina h1{
+
+    text-transform:uppercase;
+
+    text-align:left;
+
+    border-bottom:2px solid #000;
+
+    padding-bottom:5mm;
+
+}
+
+.pagina h2{
+
+    margin-top:8mm;
+
+}
+
+.pagina h3{
+
+    margin-top:5mm;
+
+}
+
+.pagina ul{
+
+    margin-left:12mm;
+
+    margin-bottom:8mm;
+
+}
+
+.pagina ol{
+
+    margin-left:12mm;
+
+    margin-bottom:8mm;
+
+}
+
+.pagina li{
+
+    text-align:justify;
+
+}
+
+
+/*==========================================================
+TABLAS
+==========================================================*/
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:5mm;
+
+    margin-bottom:8mm;
+
+}
+
+thead{
+
+    background:#efefef;
+
+}
+
+th{
+
+    border:1px solid #000;
+
+    padding:3mm;
+
+    font-size:11pt;
+
+    text-align:center;
+
+}
+
+td{
+
+    border:1px solid #000;
+
+    padding:3mm;
+
+    font-size:11pt;
+
+    vertical-align:top;
+
+}
+
+
+/*==========================================================
+CUADROS FINANCIEROS
+==========================================================*/
+
+.cuadro{
+
+    border:2px solid #000;
+
+    padding:8mm;
+
+    margin:10mm 0;
+
+}
+
+.cuadro h3{
+
+    text-align:center;
+
+    margin-bottom:6mm;
+
+}
+
+
+/*==========================================================
+OBSERVACIONES
+==========================================================*/
+
+.observacion{
+
+    border-left:5px solid #444;
+
+    background:#f7f7f7;
+
+    padding:6mm;
+
+    margin:8mm 0;
+
+}
+
+
+/*==========================================================
+NOTAS
+==========================================================*/
+
+.nota{
+
+    font-size:10pt;
+
+    font-style:italic;
+
+}
+
+
+/*==========================================================
+FIRMA
+==========================================================*/
+
+.firma{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+}
+
+.firma-perito{
+
+    width:90mm;
+
+    text-align:center;
+
+    font-size:12pt;
+
+}
+
+.firma-perito hr{
+
+    margin-bottom:4mm;
+
+}
+
+
+/*==========================================================
+IMÁGENES
+==========================================================*/
+
+img{
+
+    max-width:100%;
+
+}
+
+.imagen{
+
+    text-align:center;
+
+    margin:10mm 0;
+
+}
+
+.imagen p{
+
+    text-align:center;
+
+    font-size:10pt;
+
+}
+
+
+/*==========================================================
+ANEXOS
+==========================================================*/
+
+.anexo{
+
+    border:1px dashed #888;
+
+    padding:8mm;
+
+    margin-bottom:8mm;
+
+}
+
+
+/*==========================================================
+PIE DE PÁGINA
+==========================================================*/
+
+.pie{
+
+    position:absolute;
+
+    bottom:12mm;
+
+    left:30mm;
+
+    right:25mm;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:10pt;
+
+    color:#666;
+
+}
+
+
+/*==========================================================
+ENCABEZADO
+==========================================================*/
+
+.encabezado{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10mm;
+
+    border-bottom:1px solid #000;
+
+    padding-bottom:3mm;
+
+}
+
+.encabezado h2{
+
+    margin:0;
+
+    font-size:13pt;
+
+}
+
+
+/*==========================================================
+SALTO DE PÁGINA
+==========================================================*/
+
+.salto{
+
+    page-break-after:always;
+
+}
+
+
+/*==========================================================
+UTILIDADES
+==========================================================*/
+
+.centrado{
+
+    text-align:center;
+
+}
+
+.derecha{
+
+    text-align:right;
+
+}
+
+.izquierda{
+
+    text-align:left;
+
+}
+
+.negrita{
+
+    font-weight:bold;
+
+}
+
+.subrayado{
+
+    text-decoration:underline;
+
+}
+
+.mayusculas{
+
+    text-transform:uppercase;
+
+}
+
+
+/*==========================================================
+IMPRESIÓN
+==========================================================*/
+
+@page{
+
+    size:A4;
+
+    margin:20mm;
+
+}
+
+@media print{
+
+    body{
+
+        background:white;
+
+        padding:0;
+
+    }
+
+    .pagina{
+
+        margin:0;
+
+        box-shadow:none;
+
+        page-break-after:always;
+
+    }
 
 }
